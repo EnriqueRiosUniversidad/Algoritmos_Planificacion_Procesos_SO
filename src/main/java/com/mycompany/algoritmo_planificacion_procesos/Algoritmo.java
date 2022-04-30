@@ -38,4 +38,5 @@ public class Algoritmo {
     private ArrayList<String> representacion_Rafagas;
     private int numero_Rafagas;
     private int cantidad_De_Procesos;
+    
 }

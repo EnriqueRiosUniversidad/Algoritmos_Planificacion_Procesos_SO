@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package so.proyecto;
+package com.mycompany.algoritmo_planificacion_procesos;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -19,38 +19,50 @@ public class leerArchivoCSV {
     private String[] partes;//almacena cada linea
     private BufferedReader lector;//lee el archivo
     private String linea; //recibe la linea de cada fila
-    private Nodo nodo;
-    private ArrayList<Nodo> valoresNodo;
+    private Proceso proceso;
+    private ArrayList<Proceso> Procesos;
     
-    public void leerArchivo(String nombre_cvs) {
+    public ArrayList<Proceso> leerArchivo(String nombre_cvs) {
       int contador=0;
         try {
             lector = new BufferedReader(new FileReader(nombre_cvs));
+                        
+            
+            int posicion= 4;
+           //Va guardando los elementos de cada proceso
+           //a travez de la variable posicion, que empieza en 4 y termina en 7, para luego
+           //incrementar 1 y volver a usarse en la lectura de otro proceso nuevo.
             while ((linea = lector.readLine()) != null) {
                 partes = linea.split(",");
-             if(contador != 0){
-                 nodo = new Nodo(partes[0],Integer.parseInt(partes[1]),Integer.parseInt(partes[2]),Integer.parseInt(partes[3]));   
-                 valoresNodo.add(nodo);
-             }
-                imprimirLinea();
+           
+                 proceso = new Proceso(partes[posicion],
+                         Integer.parseInt(partes[++posicion]),
+                         Integer.parseInt(partes[++posicion]),
+                         Integer.parseInt(partes[++posicion]));   
+                 posicion++;
+                 Procesos.add(proceso);
+             
+               // imprimirLinea();
                 System.out.println("");
             }
+            
             lector.close();
             linea = null;
             partes = null;
-            nodo = null;
+             proceso = null;
             contador++;
 
         } catch (Exception e) {
             System.out.println("Localization: " + e.getLocalizedMessage() + " Message: " + e.getMessage());
         }
+        return Procesos;
     }
-
+/*
     public void imprimirLinea() {
-        for (int i = 0; i < valoresNodo.size(); i++) {
-            System.out.println(i+ "Rafagas: " +valoresNodo.get(i).getRafaga() + "|");
+        for (int i = 0; i < Procesos.size(); i++) {
+            System.out.println(i+ "Rafagas: " +Procesos.get(i).getRafaga() + "|");
         }
     }
-
+*/
 }
 
