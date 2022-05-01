@@ -12,6 +12,6 @@ package com.mycompany.algoritmo_planificacion_procesos;
 public class Algoritmo_Planificacion_Procesos {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+    
     }
 }
