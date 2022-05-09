@@ -49,7 +49,6 @@ public static ArrayList<Proceso> ord_Proc_Min_Rafagas(ArrayList<Proceso> proceso
 
 //Tiempo de llegada
 //Retorna un arreglo ordenado de menor a mayor.
-
 public static ArrayList<Proceso> ord_Proc_Min_LLegada(ArrayList<Proceso> procesos){
     Proceso aux;
     for (int i = 0; i < procesos.size() - 1; i++) {
