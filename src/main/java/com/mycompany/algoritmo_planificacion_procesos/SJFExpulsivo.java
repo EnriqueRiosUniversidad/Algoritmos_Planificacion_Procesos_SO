@@ -12,31 +12,23 @@ import java.util.ArrayList;
  * @author Lenovo
  */
 public class SJFExpulsivo {
-   private final SumarProcesos sumarProcesos;
-    private int cantRafagas;
-    private int cantProcesos;
-    private int cantTotalTiempoLlegada;
-    private final ArrayList<Proceso> auxProceso;
-    private String[] arregloString; //Contenedor de datos del SJF 
+
+    private final ArrayList<Proceso> proceso;
+    private ArrayList<String> sjfexpulsivo; //Contenedor de datos del SJF 
 
     public SJFExpulsivo() {
-        this.sumarProcesos = new SumarProcesos();
-        this.auxProceso = new ArrayList();
+        this.sjfexpulsivo = new ArrayList();
+        this.proceso = new ArrayList();
     }
 
     public void SJFExpulsivo(ArrayList<Proceso> datos) {
-        //ORDENAR LOS DATOS POR TIEMPO DE LLEGADA
-        int[] arrayProcesos = sumarProcesos.totalProcesos(datos);
-        cantProcesos = arrayProcesos[0];
-        cantRafagas = arrayProcesos[1];
-        arregloString = new String[cantRafagas];
         int tiempo_llegada1, tiempo_llegada2;
 
         for (int i = 0; i < datos.size(); i++) {
             tiempo_llegada1 = datos.get(i).getTiempo_De_Llegada();
             for (int j = i; j < datos.size(); j++) {
                 if (datos.get(j).getTiempo_De_Llegada() == tiempo_llegada1) {
-                    auxProceso.add(datos.get(j));
+                    proceso.add(datos.get(j));
                     datos.remove(j);
                     j--;
                 }
@@ -59,30 +51,30 @@ public class SJFExpulsivo {
 
         //Una vez que los for concluyan, llamo al metodo comparar procesos
         //que hara que los datos que ingresaron, se comparar y terminen de ordenarse
-        while (!auxProceso.isEmpty()) {
+        while (!proceso.isEmpty()) {
             compararRafagas();
         }
 
     }
 
     public void compararRafagas() {
-        int ultima_posicion = auxProceso.size() - 1;
+        int ultima_posicion = proceso.size() - 1;
 
-        if (auxProceso.size() > 1) {
-            for (int i = 0; i < auxProceso.size(); i++) {
-                for (int j = i + 1; j < auxProceso.size(); j++) {
-                    if ((auxProceso.get(i).getCantidad_De_Rafagas() <= auxProceso.get(j).getCantidad_De_Rafagas())
+        if (proceso.size() > 1) {
+            for (int i = 0; i < proceso.size(); i++) {
+                for (int j = i + 1; j < proceso.size(); j++) {
+                    if ((proceso.get(i).getCantidad_De_Rafagas() <= proceso.get(j).getCantidad_De_Rafagas())
                             && j == ultima_posicion) {
 
-                        if (addEnArregloString(i)) {
-                            auxProceso.remove(i);
+                        if (addsjfexpulsivo(i)) {
+                            proceso.remove(i);
                         }
                         i = ultima_posicion;
-                    } else if ((auxProceso.get(i).getCantidad_De_Rafagas() > auxProceso.get(j).getCantidad_De_Rafagas())) {
+                    } else if ((proceso.get(i).getCantidad_De_Rafagas() > proceso.get(j).getCantidad_De_Rafagas())) {
                         i = j;
 
-                        if (i == ultima_posicion && addEnArregloString(ultima_posicion)) {
-                            auxProceso.remove(ultima_posicion);
+                        if (i == ultima_posicion && addsjfexpulsivo(ultima_posicion)) {
+                            proceso.remove(ultima_posicion);
                         }
 
                     }
@@ -93,8 +85,8 @@ public class SJFExpulsivo {
             //El ultimo datos dentro del ArrayList se agrega dentro del arreglo de string
             //addEnArregloString(datos, 0);
         } else {
-            if (addEnArregloString(0)) {
-                auxProceso.remove(0);
+            if (addsjfexpulsivo(0)) {
+                proceso.remove(0);
             }
         }
 
@@ -106,41 +98,19 @@ public class SJFExpulsivo {
      * @param pos
      * @return
      */
-    public boolean addEnArregloString(int pos) {
-        int rafagas = auxProceso.get(pos).getCantidad_De_Rafagas();
-
-        int posicion = cantOcupadaArreglo();
-        
-        arregloString[posicion] = auxProceso.get(pos).getNombre();
+    public boolean addsjfexpulsivo(int pos) {
+        int rafagas = proceso.get(pos).getCantidad_De_Rafagas();
+        sjfexpulsivo.add(proceso.get(pos).getNombre());
         //Restarle 1 a la cantidad de rafagas que tiene    
-        auxProceso.get(pos).setCantidad_De_Rafagas(rafagas - 1);
-       //Si la cantidad de rafagas es cero, retorna true
-
-        return auxProceso.get(pos).getCantidad_De_Rafagas() == 0;
-    }
-
-    /**
-     * Devuelve la cantidad de posiciones ocupadas del arregloString(contenedor
-     * de datos)
-     *
-     * @return
-     */
-    public int cantOcupadaArreglo() {
-        int posiciones = 0;
-        for (String arregloString1 : arregloString) {
-            if (arregloString1 != null) {
-                posiciones++;
-            } else {
-                break;
-            }
-        }
-        return posiciones;
+        proceso.get(pos).setCantidad_De_Rafagas(rafagas - 1);
+        //Si la cantidad de rafagas es cero, retorna true
+        return proceso.get(pos).getCantidad_De_Rafagas() == 0;
     }
 
     public void imprimir() {
-        for (String arregloString1 : arregloString) {
+        sjfexpulsivo.forEach((arregloString1) -> {
             System.out.println(arregloString1 + " ");
-        }
+        });
 
     }
 }
