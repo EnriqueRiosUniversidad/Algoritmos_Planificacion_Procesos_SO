@@ -145,6 +145,14 @@ public static void imprimirRepresentacion(){
     }
 }
 
+public static ArrayList<String> getNombre_Procesos(){
+    ArrayList<String> nombres = new ArrayList();
+    for(int i=0; i< procesos.size(); i++){
+        nombres.add(procesos.get(i).getNombre());
+    }
+    return nombres;
+};
+
 public static void ejecutar(){};
 
 

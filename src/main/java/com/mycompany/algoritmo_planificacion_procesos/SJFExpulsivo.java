@@ -116,7 +116,7 @@ public class SJFExpulsivo {
 
     public void imprimir() {
         for (String sfjexpulsivo1 : sjfexpulsivo) {
-            System.out.println(sfjexpulsivo1);
+            System.out.print(" " + sfjexpulsivo1 +" ");
         }
 
     }

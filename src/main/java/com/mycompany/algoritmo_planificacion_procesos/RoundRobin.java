@@ -110,7 +110,9 @@ public class RoundRobin {
     
     public void imprimir(){
           for (String roundRobin1 : roundRobin) {
-              System.out.println(roundRobin1);
+             
+               System.out.print(" " + roundRobin1 +" ");
+              
         }
    
     }

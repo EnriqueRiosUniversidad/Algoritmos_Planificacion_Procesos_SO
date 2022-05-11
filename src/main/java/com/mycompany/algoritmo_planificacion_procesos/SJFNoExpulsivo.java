@@ -108,8 +108,8 @@ public class SJFNoExpulsivo {
     }
 
     public void imprimir() {
-        for (String sfjnoexpulsivo1 : sjfnoexpulsivo) {
-            System.out.println(sfjnoexpulsivo1);
+        for (String sfjnoexpulsivo1 : sjfnoexpulsivo) {    
+             System.out.print(" " + sfjnoexpulsivo1 +" ");
         }
 
     }
