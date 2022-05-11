@@ -31,7 +31,15 @@ public class FCFS extends Algoritmo{
         
     }
     
+    public static void imprimirRepresentacion(){
+    System.out.println("");
+    System.out.println("");
+    System.out.println("-----------------------Algoritmo FCFS----------------------- ");
     
+    Algoritmo.imprimirRepresentacion();
+    System.out.println("");
+    System.out.println("");
+}
     
 }
 //Primero quiero ordenar mi lista de procesos segun orden de llegada.

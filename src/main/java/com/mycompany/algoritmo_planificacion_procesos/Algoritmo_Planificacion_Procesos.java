@@ -37,20 +37,32 @@ public class Algoritmo_Planificacion_Procesos {
     FCFS.calcular_Representacion_Procesos();
     FCFS.imprimirRepresentacion();
     */
-    
+    /*
     Prioridad.addProceso(A);
     Prioridad.addProceso(B);
     Prioridad.addProceso(C);
     Prioridad.addProceso(D);
     Prioridad.addProceso(P);
+    */
+    
+    //Prioridad.ejecutar();
+    //Prioridad.imprimirRepresentacion();
     
     
+    
+    
+    String archivo= "C:\\Users\\wwwal\\Escritorio\\Algoritmos_Planificacion_Procesos_SO\\procesos1.csv";
+    LeerArchivo leerArchivo= new LeerArchivo();
+    ArrayList<Proceso> procesos= leerArchivo.leerArchivo(archivo);
+    
+    
+    FCFS.setProcesos(procesos);
+    FCFS.calcular_Representacion_Procesos();
+    FCFS.imprimirRepresentacion();
+    
+    Prioridad.setProcesos(procesos);
     Prioridad.ejecutar();
     Prioridad.imprimirRepresentacion();
-    
-    
-    
-    
 
     tabla_Procesos = new JTable();
     
@@ -90,15 +102,7 @@ public class Algoritmo_Planificacion_Procesos {
     
     }
     
-    
-    public static void c_tabla_procesos(ArrayList<Proceso> procesos){
-       for(int i=0; i< Algoritmo.getCantidad_De_Procesos();i++){
-           
-           
-       }
-        
-    }
-    
+ 
     
     /*Carga los procesos.*/
      public static  ArrayList<Proceso> cargarProceso(){
