@@ -54,6 +54,12 @@ public class Proceso {
         return A.nombre.equals(B.nombre);
     }
     
+    public String[] getString(){
+        String[] cadena = {getNombre(), getTiempo_De_Llegada()+""
+        , getCantidad_De_Rafagas()+"", getPrioridad()+""};
+        
+        return cadena;
+    }
     
     private String nombre;
     private int tiempo_De_Llegada;
