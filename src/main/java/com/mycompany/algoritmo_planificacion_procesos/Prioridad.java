@@ -129,7 +129,15 @@ private ArrayList<ArrayList<Proceso>> Prioridades = new ArrayList();
 private static ArrayList<Proceso> cola_espera= new ArrayList();
 
 
-
+public static void imprimirRepresentacion(){
+    System.out.println("");
+    System.out.println("");
+    System.out.println("-----------------------Algoritmo de PRIORIDAD----------------------- ");
+    
+    Algoritmo.imprimirRepresentacion();
+    System.out.println("");
+    System.out.println("");
+}
 }
 
 /*

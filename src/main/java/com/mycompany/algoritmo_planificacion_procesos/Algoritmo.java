@@ -122,6 +122,10 @@ public static void setCantidad_De_Procesos(int cantidad_De_Procesos) {
 
 public static void setProcesos(ArrayList<Proceso> procesos) {
     Algoritmo.procesos = procesos;
+    sumar_rafagas();
+    setCantidad_De_Procesos(procesos.size());
+    crear_lista_Vacia_Representacion(total_Rafagas);
+    procesos = ord_Proc_Min_LLegada(procesos); 
 }
 
 /*Cada que a;adimos un proceso, la lista de redimenciona
@@ -140,6 +144,9 @@ public static void imprimirRepresentacion(){
         System.out.print( representacion_Rafagas.get(i)+ " | ");
     }
 }
+
+public static void ejecutar(){};
+
 
 
 private static ArrayList<String> representacion_Rafagas;
