@@ -28,8 +28,8 @@ public class Correr {
         Collections.sort(datosAuxiliar, new ProcesoComparator());
         ArrayList<String> nombresProcesos = new ArrayList();
         ListaTiempos lista = new ListaTiempos();
-            System.out.println("------------- ROUND ROBIN -------------------------");
-        RoundRobin rr = new RoundRobin();
+          /*  System.out.println("------------- ROUND ROBIN -------------------------");
+      RoundRobin rr = new RoundRobin();
         
         rr.roundRobin(datos, 4);//El valor 4 puede cambiar EJ: 2/6/8/10....
         nombresProcesos = rr.getNombresRoundRobin(); 
@@ -38,20 +38,20 @@ public class Correr {
         lista.ListaTiempos(datosAuxiliar, nombresProcesos);
         lista.retornarDatos();
 
-        rr.imprimir();
+        rr.imprimir();*/
         
             System.out.println("--------------- SJF EXPULSIVO --------------------------");
-        SJFExpulsivo sjfe = new SJFExpulsivo();
+       SJFExpulsivo sjfe = new SJFExpulsivo();
         sjfe.SJFExpulsivo(datos);
         nombresProcesos = sjfe.getNombresSJFExpulsivo(); 
 
         lista.ListaTiempos(datosAuxiliar, nombresProcesos);
         lista.retornarDatos();
 
-        sjfe.imprimir();   
+        sjfe.imprimir();  
         
         
-          System.out.println("--------------- SJF EXPULSIVO --------------------------");
+        /*  System.out.println("--------------- SJF EXPULSIVO --------------------------");
         SJFNoExpulsivo sjfne = new SJFNoExpulsivo();
         sjfne.SJFNoExpulsivo(datos);
         nombresProcesos = sjfne.getSJFNoExpulsivo(); 
@@ -59,7 +59,7 @@ public class Correr {
         lista.ListaTiempos(datosAuxiliar, nombresProcesos);
         lista.retornarDatos();
 
-        sjfne.imprimir();   
+        sjfne.imprimir();   */
             
     }
 }
