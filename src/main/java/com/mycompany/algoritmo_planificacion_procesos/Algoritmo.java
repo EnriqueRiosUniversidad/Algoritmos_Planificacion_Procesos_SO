@@ -64,6 +64,22 @@ public static ArrayList<Proceso> ord_Proc_Min_LLegada(ArrayList<Proceso> proceso
     return procesos;
 }
 
+/*Ordena el array segun prioridad, de mayor a menor.*/
+public static ArrayList<Proceso> ord_Proc_Min_Prioridad(ArrayList<Proceso> procesos){
+    Proceso aux;
+    for (int i = 0; i < procesos.size() - 1; i++) {
+            for (int j = 0; j < procesos.size() - i - 1; j++) {                                                              
+                if (procesos.get(j + 1).getPrioridad()< procesos.get(j).getPrioridad()) {
+                    aux = procesos.get(j + 1);
+                    procesos.set(j + 1, procesos.get(j));
+                    procesos.set(j, aux);             
+                }
+            }
+        }
+    
+    
+return procesos;
+}
 
 
 
@@ -124,6 +140,7 @@ public static void imprimirRepresentacion(){
         System.out.print( representacion_Rafagas.get(i)+ " | ");
     }
 }
+
 
 private static ArrayList<String> representacion_Rafagas;
 private static ArrayList<Proceso> procesos = new ArrayList();
