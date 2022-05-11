@@ -14,13 +14,18 @@ import java.util.ArrayList;
 public class RoundRobin {
     private ArrayList<Proceso> proceso;
     private ArrayList<String> roundRobin;
+    private ArrayList<Proceso> ordenLlegada;
+   // private Tiempos tiempo;
     private int Quantum;
     private int TEspera;
 
     public RoundRobin() {
         proceso = new ArrayList();
         roundRobin = new ArrayList();
+        ordenLlegada = new ArrayList();
         Quantum = 0;
+        //tiempo = new Tiempos();
+        
     }
 
     public void roundRobin(ArrayList<Proceso> datos, int Q) {
@@ -28,6 +33,7 @@ public class RoundRobin {
         TEspera = addProceso(datos, 0);
         realizarRR(datos);
     }
+    
 
     public void realizarRR(ArrayList<Proceso> datos) {
         int rafaga;
@@ -90,11 +96,24 @@ public class RoundRobin {
         return difTLL;
     }
 
-    public void imprimir() {
-        for (int i = 0; i < roundRobin.size(); i++) {
-            System.out.println(roundRobin.get(i));
+    /**
+     * Aca retorna mi lista AAABBBBCCC
+     * @return 
+     */
+    public ArrayList<String> getNombresRoundRobin() {
+        for (String roundRobin1 : roundRobin) {
+            return roundRobin;
         }
+        return null;
     }
 
+    
+    public void imprimir(){
+          for (String roundRobin1 : roundRobin) {
+              System.out.println(roundRobin1);
+        }
+   
+    }
+    
     private final int CERO = 0;
 }

@@ -49,7 +49,10 @@ public class Proceso {
     public void setPrioridad(int prioridad) {
         this.prioridad = prioridad;
     }
-    
+    //Compara por nombre.
+    public boolean equals(Proceso A,Proceso B){      
+        return A.nombre.equals(B.nombre);
+    }
     
     
     private String nombre;

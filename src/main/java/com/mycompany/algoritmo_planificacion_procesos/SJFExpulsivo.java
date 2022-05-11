@@ -107,10 +107,17 @@ public class SJFExpulsivo {
         return proceso.get(pos).getCantidad_De_Rafagas() == 0;
     }
 
+    public ArrayList<String> getNombresSJFExpulsivo() {
+        for (String sjfexpulsivo1 : sjfexpulsivo) {
+            return sjfexpulsivo;
+        }
+        return null;
+    }
+
     public void imprimir() {
-        sjfexpulsivo.forEach((arregloString1) -> {
-            System.out.println(arregloString1 + " ");
-        });
+        for (String sfjexpulsivo1 : sjfexpulsivo) {
+            System.out.println(sfjexpulsivo1);
+        }
 
     }
 }

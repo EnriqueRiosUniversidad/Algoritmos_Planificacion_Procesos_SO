@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Lenovo 
+ * @author Lenovo
  */
 public class SJFNoExpulsivo {
 
@@ -100,10 +100,18 @@ public class SJFNoExpulsivo {
         auxProceso.remove(pos);
     }
 
+    public ArrayList<String> getSJFNoExpulsivo() {
+        for (String sjfnoexpulsivo1 : sjfnoexpulsivo) {
+            return sjfnoexpulsivo;
+        }
+        return null;
+    }
+
     public void imprimir() {
-        sjfnoexpulsivo.forEach((arregloString1) -> {
-            System.out.println(arregloString1 + " ");
-        });
+        for (String sfjnoexpulsivo1 : sjfnoexpulsivo) {
+            System.out.println(sfjnoexpulsivo1);
+        }
 
     }
+
 }
